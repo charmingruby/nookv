@@ -7,7 +7,7 @@ data class ProfileModelProps(
     var displayName: String,
     var currentVersion: String,
     var region: String,
-    var firstTimePlayedAt: Date
+    var firstTimePlayedAt: Date,
 )
 
 class ProfileModel(props: ProfileModelProps, id: String?) : BaseEntity<ProfileModelProps>(props, id) {
