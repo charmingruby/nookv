@@ -7,6 +7,28 @@ import kotlin.math.abs
 
 
 class BaseEntityTest {
+    data class TestEntityProps(
+        val title: String
+    )
+
+    class TestEntity(props: TestEntityProps, id: String?) : BaseEntity<TestEntityProps>(props, id) {
+        fun getTitle(): String {
+            return this.props.title
+        }
+
+        fun getId(): String {
+            return this.id()
+        }
+
+        fun getCreatedAt(): Date {
+            return this.createdAt()
+        }
+
+        fun getUpdatedAt(): Date {
+            return this.updatedAt()
+        }
+    }
+
     @Test
     fun `should be able to extends base entity`() {
         val dummyId: String = "test-id"
