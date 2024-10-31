@@ -1,14 +1,16 @@
 services:
-  db:
-    image: mysql/mysql-server:latest
-    container_name: test-db
+  database:
+    image: mysql:5.7
+    container_name: nook_db
     restart: always
     environment:
-      - MYSQL_DATABASE=test-mysql
-      - MYSQL_USER=user
-      - MYSQL_ROOT_PASSWORD=mysql
-      - MYSQL_ROOT_PASSWORD= password
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
     ports:
       - '3306:3306'
+    expose:
+      - '3306'
     volumes:
-      - ./.docker/mysql:/var/lib/mysql
+      - './.docker/mysql:/var/lib/mysql'
